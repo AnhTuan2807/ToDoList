@@ -1,0 +1,408 @@
+body {
+    font-size: 14px;
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    height: 600px;
+    overflow: hidden;
+    transition: background 500ms ease;
+}
+
+:root {
+    --bg-color: white;
+    --bx-shadow: 0 0 30px rgb(219, 133, 133);
+}
+
+[data-theme="dark"] {
+    --bg-color: black;
+    --bx-shadow: 0px 0px 500px 0px rgb(255, 255, 255);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+.card {
+    margin: 50px auto;
+    width: 350px;
+    overflow: hidden;
+    border-radius: 15px;
+    line-height: 2.3rem;
+    box-shadow: var(--bx-shadow);
+    background: rgb(236, 236, 236);
+    z-index: 10;
+}
+
+.card__header {
+    position: relative;
+    height: 215px;
+    background: url(images/background-đẹp-3-1024x682.jpg);
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    height: 95%;
+    width: 100%;
+    background-color: rgb(240, 86, 86);
+    opacity: 0.3;
+}
+
+.card__body {
+    position: relative;
+    padding: 0 20px;
+}
+
+.card__body::before {
+    content: "";
+    position: absolute;
+    top: -42px;
+    left: -20px;
+    bottom: 0;
+    background-color: #f8dcfa;
+    height: 100px;
+    width: 110%;
+    display: block;
+    transform: rotate( 10deg);
+}
+
+.card__content {
+    position: relative;
+    overflow: hidden;
+}
+
+.card__title h2 {
+    font-size: 24px;
+}
+
+.card__input {
+    position: relative;
+}
+
+.card__input input {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    background: rgba(222, 57, 99, 0.6);
+    border-radius: 25px;
+    border: 0px;
+    outline: none;
+}
+
+::placeholder {
+    color: #fff;
+}
+
+.btn-add {
+    position: absolute;
+    top: 0;
+    color: black;
+    left: 86%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgb(222 57 99);
+    color: rgba(222, 57, 99, 0.6);
+    cursor: pointer;
+}
+
+.list_todo {
+    position: relative;
+}
+
+#progressing {
+    padding-top: 30px;
+}
+
+ul.todo {
+    position: relative;
+}
+
+ul.todo#progressing:empty:after {
+    content: "You have nothing to-do!";
+    margin: 15px 0 0 0;
+}
+
+ul.todo#completed:empty:after {
+    content: "You have yet to complete any tasks.";
+}
+
+#completed {
+    padding: 30px 0;
+}
+
+#completed::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 150px;
+    background-color: rgb(211, 210, 210);
+    top: 14px;
+    left: 25%;
+}
+
+#progressing::after,
+#completed::after {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+}
+
+audio {
+    width: 100%;
+}
+
+.card__err {
+    color: red;
+    text-align: center;
+}
+
+ul.todo li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    margin: 10px 0;
+    padding: 0 10px;
+    border-radius: 25px;
+}
+
+.option_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.todo button {
+    padding: 4px 0 0 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+ul.todo#completed .status {
+    color: rgb(74, 231, 74);
+}
+
+ul.todo#progressing .remove:hover,
+ul.todo#completed .remove:hover {
+    color: red;
+}
+
+ul.todo#completed .status:hover,
+ul.todo#progressing .status:hover {
+    color: rgb(74, 231, 74);
+}
+
+ul.todo#completed .status {
+    color: rgb(74, 231, 74);
+}
+
+#theme {
+    display: none;
+}
+
+
+/* svg {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    height: 70px;
+    width: 70px;
+}
+
+path:first-of-type {
+    fill: #fff;
+}
+
+circle {
+    stroke: #757579;
+    stroke-width: 2px;
+    fill: none;
+} */
+
+
+/* 
+circle:last-of-type {
+    stroke-width: 5px;
+    stroke-dasharray: 2, 18;
+} */
+
+
+/* .sun {
+    fill: yellow;
+}
+
+.rays {
+    transition: stroke-dashoffset 400ms ease;
+    stroke: #777;
+    fill: none;
+} */
+
+.darkmode-icon.moon-shadow {
+    transition: cx 400ms ease;
+}
+
+
+/* .darkmode-icon.rays {
+    transition: stroke-dashoffset 400ms ease;
+    stroke-dashoffset: 24;
+    stroke-dasharray: 12;
+} */
+
+.sun {
+    fill: #ff7;
+    stroke: gray;
+    stroke-width: 2px;
+    /* animation-name: fade; */
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.darkmode-icon.moon-shadow {
+    fill: black;
+}
+
+.rays,
+.sun-stroke {
+    stroke: #777;
+    transition: stroke-dashoffset 400ms ease;
+    fill: none;
+}
+
+
+/* .darkmode-checkbox:checked~.rays {
+    stroke-dashoffset: 12;
+    stroke-dasharray: 12;
+} */
+
+#cloudy_sun,
+#cloudy_moon,
+.darkmode-icon {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    left: 15%;
+}
+
+label {
+    cursor: pointer;
+}
+
+.cloudy path {
+    fill: url(#grad2);
+    stroke: none;
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.cloudy {
+    /* animation: slideR;
+    animation-duration: 2s;
+    animation-fill-mode: none; */
+}
+
+#cloudy_sun {
+    position: absolute;
+    cursor: pointer;
+    top: 30px;
+    left: 16.5%;
+    /* transition: 2s ease-out; */
+    animation-duration: 1s;
+    opacity: 1;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+}
+
+#cloudy_moon {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    top: 30px;
+    left: 16.5%;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+}
+
+@keyframes slideS {
+    from {
+        /* visibility: visible; */
+        opacity: 1;
+        /* -webkit-transform: none;
+        transform: none; */
+    }
+    to {
+        opacity: 0;
+        /* visibility: hidden; */
+        -webkit-transform: translate3d(140px, 0, 0);
+        transform: translate3d(140px, 0, 0);
+    }
+}
+
+@keyframes slideM {
+    from {
+        opacity: 0;
+        /* visibility: hidden; */
+        -webkit-transform: translate3d(0, 140px, 0);
+        transform: translate3d(0, 140px, 0);
+    }
+    to {
+        /* visibility: visible; */
+        opacity: 1;
+        /* -webkit-transform: none;
+        transform: none; */
+    }
+}
+
+img {
+    width: 100%;
+}
+
+.img-box {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    top: 50px;
+    left: 18%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#bg-night {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}

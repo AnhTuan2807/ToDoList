@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ToDoList</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+    <link rel="icon" href="images/completed-task.svg" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="res.css" />
+
+</head>
+
+<body>
+    <canvas id="bg-night">
+        
+    </canvas>
+    <!-- <svg class="bg-night" viewBox="0 0 1201 1000">
+        <g>
+            <path class="rays" d="M 43,0 l2,2"></path>
+            <path class="rays" d="M 1100,10 l2,2"></path>
+        </g>
+    </svg> -->
+    <!-- <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 24 25" to="400 24 25" dur="3.5s" repeatCount="indefinite"></animateTransform> -->
+
+    <input type="checkbox" class="theme" id="theme">
+    <label for="theme">
+        <div class="img-box" id="moon"> 
+            <img src="images/moon-svgrepo-com.svg" alt="">
+        </div>
+        <svg class="darkmode-icon" viewBox="0 0 64 64">
+            <circle class="sun" id="sun_center" cx="32" cy="32" r="12" />
+            <g>
+                <path class="rays" d="M 43,4 l0,12"></path>
+                <path class="rays" d="M 43,4 l0,12" transform="rotate(45)" transform-origin="50% 50%" />
+                <path class="rays" d="M 43,4 l0,12" transform="rotate(90)" transform-origin="50% 50%"/>
+                <path class="rays" d="M 43,4 l0,12" transform="rotate(135)" transform-origin="50% 50%"/>
+                <path class="rays" d="M 43,4 l0,12" transform="rotate(180)" transform-origin="50% 50%"/>
+                <path class="rays" d="M 43,4 l0,12" transform="rotate(225)" transform-origin="50% 50%"/>
+                <path class="rays" d="M 43,4 l0,12" transform="rotate(270)" transform-origin="50% 50%"/>
+                <path class="rays" d="M 43,4 l0,12" transform="rotate(315)" transform-origin="50% 50%"/>
+            </g>
+        </svg>
+        <svg id="cloudy_sun" class="cloudy" viewBox='0 0 100 100'>
+            <g>
+                <path class="cloudy-path" d="M 25,60 a 20,20 1 0,0 0,40 h 50  a 20,20 1 0,0 0,-40  a 10,10 1 0,0 -15,-10 a 15,15 1 0,0 -35,10 z" />
+            </g>
+            <defs>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="30%" style="stop-color:rgb(168, 236, 236);stop-opacity:1" />
+                  <stop offset="50%" style="stop-color:rgb(246, 166, 253);stop-opacity:1" />
+                  <stop offset="70%" style="stop-color:rgb(129, 236, 250);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgb(255, 253, 150);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+        <svg id="cloudy_moon" class="cloudy moon" viewBox='0 0 100 100'>
+            <g>
+                <path class="cloudy-path" d="M 25,60 a 20,20 1 0,0 0,40 h 50  a 20,20 1 0,0 0,-40  a 10,10 1 0,0 -15,-10 a 15,15 1 0,0 -35,10 z" />
+            </g>
+            <defs>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="30%" style="stop-color:rgb(168, 236, 236);stop-opacity:1" />
+                  <stop offset="50%" style="stop-color:rgb(246, 166, 253);stop-opacity:1" />
+                  <stop offset="70%" style="stop-color:rgb(129, 236, 250);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgb(255, 253, 150);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </label>
+    <div class="card">
+        <div class="card__header">
+            <div class="overlay">
+            </div>
+        </div>
+        <div class="card__body">
+            <div class="card__content">
+                <div class="card__title">
+                    <h2>My Tasks</h2>
+                    <p id="date">
+                        <span id="month"></span>
+                        <span id="day"></span>
+                        <span id="year"></span>
+                    </p>
+                </div>
+                <div class="card__input">
+                    <input id="input_task" type="text" placeholder="Enter somethings...">
+                    <a type="button" class="btn-add" id="btn_add">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </div>
+                <div id="card__err" class="card__err" style="display: none;">
+                </div>
+                <div class="list_todo" id="list_todo">
+                    <ul class="todo" id="progressing">
+                    </ul>
+                    <ul class="todo" id="completed"></ul>
+                </div>
+            </div>
+        </div>
+        <audio controls>
+            <source src="./mp3/NhacThienTinhTamHoaSenNuocChay-VA-4428738.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script src="js/Validation.js"></script>
+    <script src="js/Task.js"></script>
+    <script src="js/TaskList.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>
